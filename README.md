@@ -5,7 +5,14 @@
 ## Installation
 
 ```sh
+# npm
 npm install sanity-plugin-stackup-seo
+
+# yarn
+yarn add sanity-plugin-stackup-seo
+
+# pnpm
+pnpm i sanity-plugin-stackup-seo
 ```
 
 ## Usage
@@ -21,6 +28,41 @@ export default defineConfig({
   plugins: [seo()],
 })
 ```
+
+Now, in your document schema, add the `suSeo` type as a field. For example:
+```ts
+export default {
+  name: 'page',
+  title: 'Page',
+  type: 'document',
+  fields: [
+    // ...myAmazingFields,
+    {
+      name: 'seo',
+      title: 'SEO & Social',
+      type: 'suSeo',
+    },
+  ]
+}
+```
+This can now be queried on your front-end. The SEO object should be returned in the following format:
+
+```ts
+    {
+      seoImage: [Object],
+      seoDescription: String,
+      _type: 'suSeo',
+      seoKeywords: String[],
+      seoTitle: String
+    }
+```
+
+## Gotchas
+
+There is a recognised issue around running the Studio with `v5.x` of `styled-components`. If are getting errors in the studio, please ensure your Sanity packages
+are up to date and that styled-components is on a version > `6.0.0`.
+
+After upgrading, delete your chosen package manager's `.lock` file and `node_modules` then reinstall your packages.
 
 ## License
 
