@@ -14,17 +14,17 @@ Add it as a plugin in `sanity.config.ts` (or .js):
 
 ```ts
 import {defineConfig} from 'sanity'
-import {myPlugin} from 'sanity-plugin-stackup-seo'
+import {seo} from "sanity-plugin-stackup-seo";
 
 export default defineConfig({
   //...
-  plugins: [myPlugin({})],
+  plugins: [seo()],
 })
 ```
 
 ## License
 
-[MIT](LICENSE) © Jamie Bradley
+[MIT](LICENSE) © Jamie Bradley ([StackUp Digital](https://stackupdigital.co.uk))
 
 ## Develop & test
 
